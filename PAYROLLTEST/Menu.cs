@@ -69,7 +69,29 @@ namespace PAYROLLTEST
 
         private void btnpr1_Click(object sender, EventArgs e)
         {
+            Form3 form3 = new Form3();  
+            form3.Show();   
+            this.Hide();
+        }
 
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createNewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.Show();   
+            this.Hide();        
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+            this.Hide();
         }
     }
 }

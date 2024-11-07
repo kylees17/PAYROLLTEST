@@ -97,7 +97,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(260, 300);
+            this.linkLabel1.Location = new System.Drawing.Point(234, 301);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(138, 20);
             this.linkLabel1.TabIndex = 6;
@@ -107,7 +107,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(285, 497);
+            this.linkLabel2.Location = new System.Drawing.Point(229, 495);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(204, 20);
             this.linkLabel2.TabIndex = 7;
@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 526);
+            this.ClientSize = new System.Drawing.Size(482, 529);
             this.Controls.Add(this.button_clear);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.linkLabel2);
@@ -149,6 +149,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.txt_username);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Payroll";
             this.Load += new System.EventHandler(this.Form1_Load);
