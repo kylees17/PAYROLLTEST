@@ -1792,16 +1792,16 @@ namespace PAYROLLTEST
                 if (double.TryParse(txtNetPay.Text, out Net))
                 {
                     double CASH = Net; // Replace 2 with the divisor
-                    txtAtm.Text = CASH.ToString("");
+                    txtCash.Text = CASH.ToString("");
                 }
                 else
                 {
-                    txtAtm.Text = "Invalid input";
+                    txtCash.Text = "Invalid input";
                 }
             }
             else
             {
-                txtAtm.Text = "";
+                txtCash.Text = "";
             }
 
         }
@@ -2513,6 +2513,233 @@ namespace PAYROLLTEST
         private void txt13thMonthBased_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Hard-coded connection string (not recommended for production)
+                string connectionString = "Data Source=DESKTOP-GEO9JUP\\SQLEXPRESS;Initial Catalog=Login;Integrated Security=True;";
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    // Insert query
+                    string query = @"INSERT INTO Employee_new 
+        (ID, NameOfEmployee, EmployeeID, Department, Position, TypeOfRate, MonthlyRate, SemiMonthlySalary,
+                    DailyRate, DaysOfWork, SSSCUSTOMBASED, PHICCUSTOMBASED, HoursOfWork, HourlyRate, MinuteRate, BasicPay,OvertimeMins,OvertimeHrs,OvertimeAmount,
+                     RestDaysHrs, RestDaysDays, RestDayAmount, RestDayOThrs, RestDayOTAmount, TotalEmployeeRestDayHrs, TotalEmployeeRestDayDays, TotalEmployeeRestDayAmount,
+                     SpecialHolidayHrs, SpecialHolidayDays, SpecialHolidayAmount, SpecialHolidayOTHrs, SpecialHolidayOTAmount, SpecialHolidayAndRestDayHrs, SpecialHolidayAndRestDayOTHrs,
+                       SpecialHolidayAndRestDayOTAmount, LegalHolidayHrs, LegalHolidayDays, LegalHolidayAmount, LegalHolidayOTHrs, LegalOTAmount, LegalHolidayAndRestDayHrs,
+                        LegalHolidayAndRestDaydays, LegalHolidayAndRestDayAmount, LegalHolidayAndRestDayOTHrs, LegalHolidayAndRestDayOTAmount, TotalEmployeeHolidayHrs,  
+                        TotalEmployeeHolidayDays,TotalEmployeeHolidayAmount, NDonworkingdayHrs, NDonworkingdayAmount, NDOTonworkingdayHrs, NDOTonworkingdayAmount, NDonLegalHolidayHrs,
+                         NDonLegalHolidayAmount, NDOTonLegalHolidayHrs, NDOTonLegalHolidayAmount, NDonRestDayLegalHolidayHrs, NDonLegalHolidayRestdayAmount, NDOTonRestDayLegalHolidayHrs,  
+                         NDOTonLegalHolidayRestdayAmount, NDonSpecialHolidayorRestDayHrs, NDonSpecialHolidayorRestDayAmount, NDOTonSpecialHolidayorRestDayHrs, NDOTonSpecialHolidayorRestDayAmount,  
+                          NDSpecialHolidayandRestDayHrs, NDSpecialHolidayandRestDayAmount, NDOTSpecialHolidayandRestDayHrs, NDOTSpecialHolidayandRestDayAmount, TotalNDHrs, TotalNDAmount,        
+                       SalaryAdjustment, LeaveWithPaySickDays, LeaveWithPayVacationDays, LeaveWithPaySickAmount, LeaveWithPayVacationAmount, COLA, Incentives, HazzardPay, Commission,
+                       CalamityLeave, OtherTaxable2, TotalTaxableAmount, DeMinimis, IncentiveProgram, Bonus, Column3, LaundryAllowance, MealAllowance, CompanyLoan, T13MonthPay, TotalNonTaxable,
+                        TotalGrossPay, [Late(MinuteBased)Min], [Late(MinuteBased)Amount], [Late(HourBased)Hour], [Late(HourBased)Amount], AbsentOrWithoutLWPDays, AbsentOrWithoutLWPAmount,
+                        TotalTardiness, SSSBasicPayBased, SSSGrossBased, SSS, PHICBasicPayBased, PHICstatus, TotalSocialCost, SSSsalaryloan, SSSCalamityLoan, HDMFSalaryLoan, HDMFCalamityLoan,
+                        TotalGovernmentLoans, CompanyLoans, OtherLoan1, OtherLoan2, OtherLoan3, TotalOtherLoans, AdjustmentOrRefunds, SalaryDeduction, Deductions, ManualTeraphyTechniques,
+                      UniformDeduction, MedicalExpensesDeduction, TotalDeductions,  AmountDue, TaxableIncome, WithholdingTax, NetPay, [13thmonthbased], [13thMonthforthisCutoff], SalaryType,
+                        ATM, CASH, ATM#
+                            ) 
+        VALUES 
+        (@ID, @NameOfEmployee, @EmployeeID, @Department, @Position, @TypeOfRate, @MonthlyRate, @SemiMonthlySalary,
+                    @DailyRate, @DaysOfWork, @SSSCUSTOMBASED, @PHICCUSTOMBASED, @HoursOfWork, @HourlyRate, @MinuteRate, @BasicPay,@OvertimeMins, @OvertimeHrs,@OvertimeAmount,
+                    @RestDaysHrs,@RestDaysDays, @RestDayAmount, @RestDayOThrs, @RestDayOTAmount, @TotalEmployeeRestDayHrs, @TotalEmployeeRestDayDays, @TotalEmployeeRestDayAmount,
+                     @SpecialHolidayHrs, @SpecialHolidayDays, @SpecialHolidayAmount, @SpecialHolidayOTHrs, @SpecialHolidayOTAmount, @SpecialHolidayAndRestDayHrs, @SpecialHolidayAndRestDayOTHrs,
+                       @SpecialHolidayAndRestDayOTAmount, @LegalHolidayHrs, @LegalHolidayDays, @LegalHolidayAmount, @LegalHolidayOTHrs, @LegalOTAmount, @LegalHolidayAndRestDayHrs,
+                        @LegalHolidayAndRestDaydays, @LegalHolidayAndRestDayAmount, @LegalHolidayAndRestDayOTHrs, @LegalHolidayAndRestDayOTAmount, @TotalEmployeeHolidayHrs, 
+                        @TotalEmployeeHolidayDays, @TotalEmployeeHolidayAmount, @NDonworkingdayHrs, @NDonworkingdayAmount, @NDOTonworkingdayHrs, @NDOTonworkingdayAmount, @NDonLegalHolidayHrs,
+                         @NDonLegalHolidayAmount, @NDOTonLegalHolidayHrs, @NDOTonLegalHolidayAmount, @NDonRestDayLegalHolidayHrs, @NDonLegalHolidayRestdayAmount,@NDOTonRestDayLegalHolidayHrs,
+                          @NDOTonLegalHolidayRestdayAmount, @NDonSpecialHolidayorRestDayHrs, @NDonSpecialHolidayorRestDayAmount, @NDOTonSpecialHolidayorRestDayHrs, @NDOTonSpecialHolidayorRestDayAmount,
+                        @NDSpecialHolidayandRestDayHrs, @NDSpecialHolidayandRestDayAmount, @NDOTSpecialHolidayandRestDayHrs, @NDOTSpecialHolidayandRestDayAmount, @TotalNDHrs, @TotalNDAmount,
+                         @SalaryAdjustment, @LeaveWithPaySickDays, @LeaveWithPayVacationDays, @LeaveWithPaySickAmount, @LeaveWithPayVacationAmount, @COLA, @Incentives, @HazzardPay, @Commission,
+                         @CalamityLeave, @OtherTaxable2, @TotalTaxableAmount, @DeMinimis, @IncentiveProgram, @Bonus, @Column3, @LaundryAllowance, @MealAllowance, @CompanyLoan, @T13MonthPay, 
+                         @TotalNonTaxable, @TotalGrossPay, @[Late(MinuteBased)Min], @[Late(MinuteBased)Amount], @[Late(HourBased)Hour], @[Late(HourBased)Amount], @AbsentOrWithoutLWPDays, @AbsentOrWithoutLWPAmount,
+                          @TotalTardiness, @SSSBasicPayBased, @SSSGrossBased, @SSS, @PHICBasicPayBased, @PHICstatus, @TotalSocialCost, @SSSsalaryloan, @SSSCalamityLoan, @HDMFSalaryLoan, @HDMFCalamityLoan, 
+                        @TotalGovernmentLoans, @CompanyLoans, @OtherLoan1, @OtherLoan2, @OtherLoan3, @TotalOtherLoans, @AdjustmentOrRefunds, @SalaryDeduction, @Deductions, @ManualTeraphyTechniques,
+                        @UniformDeduction, @MedicalExpensesDeduction, @TotalDeductions, @AmountDue, @TaxableIncome, @WithholdingTax, @NetPay, @[13thmonthbased], @[13thMonthforthisCutoff], @SalaryType, 
+                        @ATM, @CASH, @ATM#
+                            )";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        // Add parameters with TryParse logic directly
+                        cmd.Parameters.AddWithValue("@ID", int.TryParse(txtNo.Text, out int id) ? id : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NameOfEmployee", txtNameOfEmployee.Text);                      
+                        cmd.Parameters.AddWithValue("@EmployeeID", txtEMPID.Text);
+                        cmd.Parameters.AddWithValue("@Department", txtDpt.Text);
+                        cmd.Parameters.AddWithValue("@Position", txtPosition.Text);
+                        cmd.Parameters.AddWithValue("@TypeOfRate", txtTypeRate.Text);
+                        cmd.Parameters.AddWithValue("@MonthlyRate", int.TryParse(textBox4.Text, out int monthlyRate) ? monthlyRate : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SemiMonthlySalary", int.TryParse(textBox8.Text, out int semimonthlyrate) ? semimonthlyrate : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@DailyRate", int.TryParse(txtPDailyrate.Text, out int dailyRate) ? dailyRate : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@DaysOfWork", int.TryParse(textBox3.Text, out int DaysOfWork) ? DaysOfWork : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SSSCUSTOMBASED", int.TryParse(txtSSSCUSTOMBASED.Text, out int SSSCustomBased) ? (object)SSSCustomBased : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@PHICCUSTOMBASED", int.TryParse(txtPHICcustom.Text, out int PhicCustom) ? (object)PhicCustom : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@HoursOfWork", int.TryParse(txtWorkhours.Text, out int HoursOfWork) ? (object)HoursOfWork : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@HourlyRate", int.TryParse(txtPNoHours.Text, out int HourlyRate) ? (object)HourlyRate : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@MinuteRate", int.TryParse(txtPMinRate.Text, out int MinuteRate) ? (object)MinuteRate : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@BasicPay", int.TryParse(txtBasicPay.Text, out int BasicPay) ? (object)BasicPay : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@OvertimeMins", int.TryParse(txtOvertimeMin.Text, out int OvertimeMins) ? (object)OvertimeMins : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@OvertimeHrs", int.TryParse(txtOvertimeHrs.Text, out int OvertimeHrs) ? (object)OvertimeHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@OvertimeAmount", int.TryParse(txtOvertimeAmount.Text, out int OvertimeAmount) ? (object)OvertimeAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@RestDaysHrs", int.TryParse(txtRestDayHrs.Text, out int RestDaysHrs) ? (object)RestDaysHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@RestDaysDays", int.TryParse(txtRDdays.Text, out int RestDaysDays) ? (object)RestDaysDays : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@RestDayAmount", int.TryParse(txtRestDayAmount.Text, out int RestDayAmount) ? (object)RestDayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@RestDayOThrs", int.TryParse(txtOtRestDayHrs.Text, out int RestDayOThrs) ? (object)RestDayOThrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@RestDayOTAmount", int.TryParse(txtRDayOtAmt.Text, out int RestDayOTAmount) ? (object)RestDayOTAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalEmployeeRestDayHrs", int.TryParse(txtTotalRDhrs.Text, out int TotalEmployeeRestDayHrs) ? (object)TotalEmployeeRestDayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalEmployeeRestDayDays", int.TryParse(txtTotalRDdays.Text, out int TotalEmployeeRestDayDays) ? (object)TotalEmployeeRestDayDays : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalEmployeeRestDayAmount", int.TryParse(txtTotalRDamount.Text, out int TotalEmployeeRestDayAmount) ? (object)TotalEmployeeRestDayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SpecialHolidayHrs", int.TryParse(txtSHolidayhrs.Text, out int SpecialHolidayHrs) ? (object)SpecialHolidayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SpecialHolidayDays", int.TryParse(txtSHolidaydays.Text, out int SpecialHolidayDays) ? (object)SpecialHolidayDays : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SpecialHolidayAmount", int.TryParse(txtSHolidayAmount.Text, out int SpecialHolidayAmount) ? (object)SpecialHolidayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SpecialHolidayOTHrs", int.TryParse(txtSpecHolOThrs.Text, out int SpecialHolidayOTHrs) ? (object)SpecialHolidayOTHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SpecialHolidayOTAmount", int.TryParse(txtSpecHolOTAmt.Text, out int SpecialHolidayOTAmount) ? (object)SpecialHolidayOTAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SpecialHolidayAndRestDayHrs", int.TryParse(txtSHandRDhrs.Text, out int SpecialHolidayAndRestDayHrs) ? (object)SpecialHolidayAndRestDayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SpecialHolidayAndRestDayOTHrs", int.TryParse(txtSHandRDOThrs.Text, out int SpecialHolidayAndRestDayOTHrs) ? (object)SpecialHolidayAndRestDayOTHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SpecialHolidayAndRestDayOTAmount", int.TryParse(txtSHandRDOTamt.Text, out int SpecialHolidayAndRestDayOTAmount) ? (object)SpecialHolidayAndRestDayOTAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LegalHolidayHrs", int.TryParse(txtLHolidayHrs.Text, out int LegalHolidayHrs) ? (object)LegalHolidayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LegalHolidayDays", int.TryParse(txtLholidaydays.Text, out int LegalHolidayDays) ? (object)LegalHolidayDays : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LegalHolidayAmount", int.TryParse(txtLHolidayAmount.Text, out int LegalHolidayAmount) ? (object)LegalHolidayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LegalHolidayOTHrs", int.TryParse(txtLHolidayOThrs.Text, out int LegalHolidayOTHrs) ? (object)LegalHolidayOTHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LegalOTAmount", int.TryParse(txtLHolidayOTAmount.Text, out int LegalOTAmount) ? (object)LegalOTAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LegalHolidayAndRestDayHrs", int.TryParse(txtLHandRDhrs.Text, out int LegalHolidayAndRestDayHrs) ? (object)LegalHolidayAndRestDayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LegalHolidayAndRestDaydays", int.TryParse(txtLHandRDdays.Text, out int LegalHolidayAndRestDaydays) ? (object)LegalHolidayAndRestDaydays : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LegalHolidayAndRestDayAmount", int.TryParse(txtLHandRDAmount.Text, out int LegalHolidayAndRestDayAmount) ? (object)LegalHolidayAndRestDayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LegalHolidayAndRestDayOTHrs", int.TryParse(txtLHandRDOThrs.Text, out int LegalHolidayAndRestDayOTHrs) ? (object)LegalHolidayAndRestDayOTHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LegalHolidayAndRestDayOTAmount", int.TryParse(txtPHICcustom.Text, out int LegalHolidayAndRestDayOTAmount) ? (object)LegalHolidayAndRestDayOTAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalEmployeeHolidayHrs", int.TryParse(txtTotalEmpHolidayHrs.Text, out int TotalEmployeeHolidayHrs) ? (object)TotalEmployeeHolidayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalEmployeeHolidayDays", int.TryParse(txtTotalEmpHolidayDays.Text, out int TotalEmployeeHolidayDays) ? (object)TotalEmployeeHolidayDays : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalEmployeeHolidayAmount", int.TryParse(txtTotalEmpHolidayAmt.Text, out int TotalEmployeeHolidayAmount) ? (object)TotalEmployeeHolidayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDonworkingdayHrs", int.TryParse(txtNDworkingDayhrs.Text, out int NDonworkingdayHrs) ? (object)NDonworkingdayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDonworkingdayAmount", int.TryParse(txtNDworkingDayAmount.Text, out int NDonworkingdayAmount) ? (object)NDonworkingdayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDOTonworkingdayHrs", int.TryParse(txtNDOTworkingDayhrs.Text, out int NDOTonworkingdayHrs) ? (object)NDOTonworkingdayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDOTonworkingdayAmount", int.TryParse(txtPHICcustom.Text, out int NDOTonworkingdayAmount) ? (object)NDOTonworkingdayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDonLegalHolidayHrs", int.TryParse(txtNDLegalHolidayHrs.Text, out int NDonLegalHolidayHrs) ? (object)NDonLegalHolidayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDonLegalHolidayAmount", int.TryParse(txtNDLegalHolidayAmt.Text, out int NDonLegalHolidayAmount) ? (object)NDonLegalHolidayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDOTonLegalHolidayHrs", int.TryParse(txtNDOTLegalHolidayHrs.Text, out int NDOTonLegalHolidayHrs) ? (object)NDOTonLegalHolidayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDOTonLegalHolidayAmount", int.TryParse(txtNDOTLegalHolidayAmt.Text, out int NDOTonLegalHolidayAmount) ? (object)NDOTonLegalHolidayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDonRestDayLegalHolidayHrs", int.TryParse(txtNDRHandLHhrs.Text, out int NDonRestDayLegalHolidayHrs) ? (object)NDonRestDayLegalHolidayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDonLegalHolidayRestdayAmount", int.TryParse(txtNDRHandLHamount.Text, out int NDonLegalHolidayRestdayAmount) ? (object)NDonLegalHolidayRestdayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDOTonRestDayLegalHolidayHrs", int.TryParse(txtNDotRHandLHhrs.Text, out int NDOTonRestDayLegalHolidayHrs) ? (object)NDOTonRestDayLegalHolidayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDOTonLegalHolidayRestdayAmount", int.TryParse(txtNDotRHandLHamount.Text, out int NDOTonLegalHolidayRestdayAmount) ? (object)NDOTonLegalHolidayRestdayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDonSpecialHolidayorRestDayHrs", int.TryParse(txtNDonSHorRDhrs.Text, out int NDonSpecialHolidayorRestDayHrs) ? (object)NDonSpecialHolidayorRestDayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDonSpecialHolidayorRestDayAmount", int.TryParse(txtNDonSHorRDAmount.Text, out int NDonSpecialHolidayorRestDayAmount) ? (object)NDonSpecialHolidayorRestDayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDOTonSpecialHolidayorRestDayHrs", int.TryParse(txtNDOTonSHorRDhrs.Text, out int NDOTonSpecialHolidayorRestDayHrs) ? (object)NDOTonSpecialHolidayorRestDayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDOTonSpecialHolidayorRestDayAmount", int.TryParse(txtNDOTonSHorRDAmt.Text, out int NDOTonSpecialHolidayorRestDayAmount) ? (object)NDOTonSpecialHolidayorRestDayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDSpecialHolidayandRestDayHrs", int.TryParse(txtNDSpecHolAndRestdayHrs.Text, out int NDSpecialHolidayandRestDayHrs) ? (object)NDSpecialHolidayandRestDayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDSpecialHolidayandRestDayAmount", int.TryParse(txtNDSpecHolAndRestdayAmt.Text, out int NDSpecialHolidayandRestDayAmount) ? (object)NDSpecialHolidayandRestDayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDOTSpecialHolidayandRestDayHrs", int.TryParse(txtNDOTSpecHolAndRestdayHrs.Text, out int NDOTSpecialHolidayandRestDayHrs) ? (object)NDOTSpecialHolidayandRestDayHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NDOTSpecialHolidayandRestDayAmount", int.TryParse(txtNDOTSpecHolAndRestdayAmt.Text, out int NDOTSpecialHolidayandRestDayAmount) ? (object)NDOTSpecialHolidayandRestDayAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalNDHrs", int.TryParse(txtTotalNDhrs.Text, out int TotalNDHrs) ? (object)TotalNDHrs : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalNDAmount", int.TryParse(txtTotalNDAmt.Text, out int TotalNDAmount) ? (object)TotalNDAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SalaryAdjustment", int.TryParse(txtSalaryAdjust.Text, out int SalaryAdjustment) ? (object)SalaryAdjustment : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LeaveWithPaySickDays", int.TryParse(txtLeavewithPaySickDays.Text, out int LeaveWithPaySickDays) ? (object)LeaveWithPaySickDays : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LeaveWithPayVacationDays", int.TryParse(txtLeavewithPayVacationAmount.Text, out int LeaveWithPayVacationDays) ? (object)LeaveWithPayVacationDays : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LeaveWithPaySickAmount", int.TryParse(txtleavewithPaySickAmount.Text, out int LeaveWithPaySickAmount) ? (object)LeaveWithPaySickAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LeaveWithPayVacationAmount", int.TryParse(txtLeavewithPayVacationAmount.Text, out int LeaveWithPayVacationAmount) ? (object)LeaveWithPayVacationAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@COLA", int.TryParse(txtCOLA.Text, out int COLA) ? (object)COLA : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Incentives", int.TryParse(txtIncentives.Text, out int Incentives) ? (object)Incentives : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@HazzardPay", int.TryParse(txtHazzardPay.Text, out int HazzardPay) ? (object)HazzardPay : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Commission", int.TryParse(txtCommission.Text, out int Commission) ? (object)Commission : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@CalamityLeave", int.TryParse(txtCalamityLeave.Text, out int CalamityLeave) ? (object)CalamityLeave : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@OtherTaxable2", int.TryParse(txtOtherTaxableTwo.Text, out int OtherTaxable2) ? (object)OtherTaxable2 : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalTaxableAmount", int.TryParse(txtTotaltaxableAmount.Text, out int TotalTaxableAmount) ? (object)TotalTaxableAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@DeMinimis", int.TryParse(txtDeminimis.Text, out int DeMinimis) ? (object)DeMinimis : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@IncentiveProgram", int.TryParse(txtIncentiveProgram.Text, out int IncentiveProgram) ? (object)IncentiveProgram : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Bonus", int.TryParse(txtBonus.Text, out int Bonus) ? (object)Bonus : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Column3", int.TryParse(txtColumn3.Text, out int Column3) ? (object)Column3 : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@LaundryAllowance", int.TryParse(txtLaundryAllowance.Text, out int LaundryAllowance) ? (object)LaundryAllowance : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@MealAllowance", int.TryParse(txtMealAllowance.Text, out int MealAllowance) ? (object)MealAllowance : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@CompanyLoan", int.TryParse(txtCompanyLoan.Text, out int CompanyLoan) ? (object)CompanyLoan : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@T13MonthPay", int.TryParse(txt13monthPay.Text, out int T13MonthPay) ? (object)T13MonthPay : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalNonTaxable", int.TryParse(txtTotalNonTaxableAmt.Text, out int TotalNonTaxable) ? (object)TotalNonTaxable : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalGrossPay", int.TryParse(txtTotalGrossPay.Text, out int TotalGrossPay) ? (object)TotalGrossPay : DBNull.Value);
+
+                        cmd.Parameters.AddWithValue("@[Late(MinuteBased)Min]", int.TryParse(txtLateMin.Text, out int LateMin) ? (object)LateMin : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@[Late(MinuteBased)Amount]", int.TryParse(txtLateMinAmount.Text, out int LateMinAmount) ? (object)LateMinAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@[Late(HourBased)Hour]", int.TryParse(txtLateHours.Text, out int LateHours) ? (object)LateHours : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@[Late(HourBased)Amount]", int.TryParse(txtLateHourAmount.Text, out int LateHourAmount) ? (object)LateHourAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@AbsentOrWithoutLWPDays", int.TryParse(txtAbsentDays.Text, out int AbsentOrWithoutLWPDays) ? (object)AbsentOrWithoutLWPDays : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@AbsentOrWithoutLWPAmount", int.TryParse(txtAbsentAmt.Text, out int AbsentOrWithoutLWPAmount) ? (object)AbsentOrWithoutLWPAmount : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalTardiness", int.TryParse(txtTotalTardiness.Text, out int TotalTardiness) ? (object)TotalTardiness : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SSSBasicPayBased", int.TryParse(txtSSSBasicPayBased.Text, out int SSSBasicPayBased) ? (object)SSSBasicPayBased : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SSSGrossBased", int.TryParse(txtSSSGrossBase.Text, out int SSSGrossBased) ? (object)SSSGrossBased : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SSSstatus", int.TryParse(comboBox1.Text, out int SSSstatus) ? (object)SSSstatus : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SSS", int.TryParse(txtEEContribution.Text, out int SSS) ? (object)SSS : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@PHICBasicPayBased", int.TryParse(txtPHICBasedPay.Text, out int PHICBasicPayBased) ? (object)PHICBasicPayBased : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@PHICstatus", int.TryParse(txtPHICBasedPay.Text, out int PHICstatus) ? (object)PHICstatus : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@HDMFSTATUS", int.TryParse(comboBox2.Text, out int HDMFSTATUS) ? (object)HDMFSTATUS : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@HDMF", int.TryParse(txtHDMf.Text, out int HDMF) ? (object)HDMF : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalSocialCost", int.TryParse(txtTotalSocialCost.Text, out int TotalSocialCost) ? (object)TotalSocialCost : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SSSsalaryloan", int.TryParse(txtSSSSalaryLoan.Text, out int SSSsalaryloan) ? (object)SSSsalaryloan : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SSSCalamityLoan", int.TryParse(txtSSSCalamityLoan.Text, out int SSSCalamityLoan) ? (object)SSSCalamityLoan : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@HDMFSalaryLoan", int.TryParse(txtHdmfSalaryLoan.Text, out int HDMFSalaryLoan) ? (object)HDMFSalaryLoan : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@HDMFCalamityLoan", int.TryParse(txtHdmfCalamityLoan.Text, out int HDMFCalamityLoan) ? (object)HDMFCalamityLoan : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalGovernmentLoans", int.TryParse(txtTotalGovernmentLoans.Text, out int TotalGovernmentLoans) ? (object)TotalGovernmentLoans : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@CompanyLoans", int.TryParse(txtCompanyLoans.Text, out int CompanyLoans) ? (object)CompanyLoans : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@OtherLoan1", int.TryParse(txtOtherLoan1.Text, out int OtherLoan1) ? (object)OtherLoan1 : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@OtherLoan2", int.TryParse(txtOtherLoan2.Text, out int OtherLoan2) ? (object)OtherLoan2 : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@OtherLoan3", int.TryParse(txtotherLoan3.Text, out int OtherLoan3) ? (object)OtherLoan3 : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalOtherLoans", int.TryParse(txtTotalOtherLoans.Text, out int TotalOtherLoans) ? (object)TotalOtherLoans : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@AdjustmentOrRefunds", int.TryParse(txtAdjustmentOrRefund.Text, out int AdjustmentOrRefunds) ? (object)AdjustmentOrRefunds : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SalaryDeduction", int.TryParse(txtSalaryDeductions.Text, out int SalaryDeduction) ? (object)SalaryDeduction : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Deductions", int.TryParse(txtDeduction.Text, out int Deductions) ? (object)Deductions : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@ManualTeraphyTechniques", int.TryParse(txtManualTeraphyTechniques.Text, out int ManualTeraphyTechniques) ? (object)ManualTeraphyTechniques : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@UniformDeduction", int.TryParse(txtuniformdeductions.Text, out int UniformDeduction) ? (object)UniformDeduction : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@MedicalExpensesDeduction", int.TryParse(txtMedicalExpense.Text, out int MedicalExpensesDeduction) ? (object)MedicalExpensesDeduction : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TotalDeductions", int.TryParse(txtTotalDeductions.Text, out int TotalDeductions) ? (object)TotalDeductions : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@AmountDue", int.TryParse(txtAmountDue.Text, out int AmountDue) ? (object)AmountDue : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@TaxableIncome", int.TryParse(txtTaxableIncome.Text, out int TaxableIncome) ? (object)TaxableIncome : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@WithholdingTax", int.TryParse(txtWithholdingTax.Text, out int WithholdingTax) ? (object)WithholdingTax : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NetPay", int.TryParse(txtNetPay.Text, out int NetPay) ? (object)NetPay : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@[13thmonthbased]", int.TryParse(txt13thMonthBased.Text, out int T13thmonthbased) ? (object)T13thmonthbased : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@[13thMonthforthisCutoff]", int.TryParse(txt13thmonthforthisCutoff.Text, out int T13thMonthforthisCutoff) ? (object)T13thMonthforthisCutoff : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@SalaryType", int.TryParse(txtSalaryType.Text, out int SalaryType) ? (object)SalaryType : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@ATM", int.TryParse(txtAtm.Text, out int ATM) ? (object)ATM : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@CASH", int.TryParse(txtCash.Text, out int CASH) ? (object)CASH : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@ATM#", int.TryParse(txtCash.Text, out int ATMs) ? (object)ATMs : DBNull.Value);
+
+
+
+
+
+
+
+
+                        // Check if any numeric fields were invalid
+                        if (cmd.Parameters["@ID"].Value is DBNull)
+
+                        {
+                            MessageBox.Show("Please ensure all numeric fields are entered correctly.");
+                            return;
+                        }
+
+                        // Execute the query
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Record successfully created!");
+
+                        // Clear text fields after successful operation
+                        ClearTextFields();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Display the error message in case of any exception
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            void ClearTextFields()
+            {
+               
+            }
         }
     }
 }

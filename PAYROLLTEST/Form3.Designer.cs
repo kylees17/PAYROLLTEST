@@ -314,7 +314,7 @@
             this.label94 = new System.Windows.Forms.Label();
             this.txt13thMonthBased = new System.Windows.Forms.TextBox();
             this.txtAtm = new System.Windows.Forms.TextBox();
-            this.textBox125 = new System.Windows.Forms.TextBox();
+            this.txtSalaryType = new System.Windows.Forms.TextBox();
             this.label124 = new System.Windows.Forms.Label();
             this.label125 = new System.Windows.Forms.Label();
             this.label126 = new System.Windows.Forms.Label();
@@ -3095,7 +3095,7 @@
             this.groupBox13.Controls.Add(this.label94);
             this.groupBox13.Controls.Add(this.txt13thMonthBased);
             this.groupBox13.Controls.Add(this.txtAtm);
-            this.groupBox13.Controls.Add(this.textBox125);
+            this.groupBox13.Controls.Add(this.txtSalaryType);
             this.groupBox13.Controls.Add(this.label124);
             this.groupBox13.Controls.Add(this.label125);
             this.groupBox13.Controls.Add(this.label126);
@@ -3170,12 +3170,12 @@
             this.txtAtm.Size = new System.Drawing.Size(206, 26);
             this.txtAtm.TabIndex = 29;
             // 
-            // textBox125
+            // txtSalaryType
             // 
-            this.textBox125.Location = new System.Drawing.Point(925, 39);
-            this.textBox125.Name = "textBox125";
-            this.textBox125.Size = new System.Drawing.Size(206, 26);
-            this.textBox125.TabIndex = 28;
+            this.txtSalaryType.Location = new System.Drawing.Point(925, 39);
+            this.txtSalaryType.Name = "txtSalaryType";
+            this.txtSalaryType.Size = new System.Drawing.Size(206, 26);
+            this.txtSalaryType.TabIndex = 28;
             // 
             // label124
             // 
@@ -3294,6 +3294,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Create Payroll";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -3675,7 +3676,7 @@
         private System.Windows.Forms.Label label94;
         private System.Windows.Forms.TextBox txt13thMonthBased;
         private System.Windows.Forms.TextBox txtAtm;
-        private System.Windows.Forms.TextBox textBox125;
+        private System.Windows.Forms.TextBox txtSalaryType;
         private System.Windows.Forms.Label label124;
         private System.Windows.Forms.Label label125;
         private System.Windows.Forms.Label label126;
