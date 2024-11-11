@@ -413,7 +413,7 @@ namespace PAYROLLTEST
         {
             Form2 form2 = new Form2();
             form2.Show();
-            this.Hide();
+            this.Hide();    
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
