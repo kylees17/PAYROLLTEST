@@ -32,10 +32,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openPayrollToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchPayrollToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benefitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.savePayrollRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,11 +39,9 @@
             this.sSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.philHealthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taxTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.payrollReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stCutOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ndCutoffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.employeeListSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnpr1 = new System.Windows.Forms.Button();
@@ -86,7 +80,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1586, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1555, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,7 +88,6 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openFileToolStripMenuItem,
-            this.openPayrollToolStripMenuItem,
             this.benefitsToolStripMenuItem,
             this.savePayrollRecordToolStripMenuItem,
             this.exitToolStripMenuItem});
@@ -108,35 +101,6 @@
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
             this.openFileToolStripMenuItem.Size = new System.Drawing.Size(345, 34);
             this.openFileToolStripMenuItem.Text = "Open File";
-            // 
-            // openPayrollToolStripMenuItem
-            // 
-            this.openPayrollToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createNewToolStripMenuItem,
-            this.editToolStripMenuItem1,
-            this.searchPayrollToolStripMenuItem});
-            this.openPayrollToolStripMenuItem.Name = "openPayrollToolStripMenuItem";
-            this.openPayrollToolStripMenuItem.Size = new System.Drawing.Size(345, 34);
-            this.openPayrollToolStripMenuItem.Text = " Payroll";
-            // 
-            // createNewToolStripMenuItem
-            // 
-            this.createNewToolStripMenuItem.Name = "createNewToolStripMenuItem";
-            this.createNewToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.createNewToolStripMenuItem.Text = "Create New";
-            this.createNewToolStripMenuItem.Click += new System.EventHandler(this.createNewToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem1
-            // 
-            this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
-            this.editToolStripMenuItem1.Text = "Edit ";
-            // 
-            // searchPayrollToolStripMenuItem
-            // 
-            this.searchPayrollToolStripMenuItem.Name = "searchPayrollToolStripMenuItem";
-            this.searchPayrollToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.searchPayrollToolStripMenuItem.Text = "Search Payroll";
             // 
             // benefitsToolStripMenuItem
             // 
@@ -164,7 +128,6 @@
             this.sSSToolStripMenuItem,
             this.philHealthToolStripMenuItem,
             this.taxTableToolStripMenuItem,
-            this.payrollReportToolStripMenuItem,
             this.stCutOffToolStripMenuItem,
             this.ndCutoffToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
@@ -190,12 +153,6 @@
             this.taxTableToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.taxTableToolStripMenuItem.Text = "Tax Table";
             // 
-            // payrollReportToolStripMenuItem
-            // 
-            this.payrollReportToolStripMenuItem.Name = "payrollReportToolStripMenuItem";
-            this.payrollReportToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.payrollReportToolStripMenuItem.Text = "Payroll Report";
-            // 
             // stCutOffToolStripMenuItem
             // 
             this.stCutOffToolStripMenuItem.Name = "stCutOffToolStripMenuItem";
@@ -211,7 +168,6 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.employeeListSettingsToolStripMenuItem,
             this.adminSettingsToolStripMenuItem,
             this.logOutToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
@@ -219,22 +175,16 @@
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
-            // employeeListSettingsToolStripMenuItem
-            // 
-            this.employeeListSettingsToolStripMenuItem.Name = "employeeListSettingsToolStripMenuItem";
-            this.employeeListSettingsToolStripMenuItem.Size = new System.Drawing.Size(292, 34);
-            this.employeeListSettingsToolStripMenuItem.Text = "Employee List Settings";
-            // 
             // adminSettingsToolStripMenuItem
             // 
             this.adminSettingsToolStripMenuItem.Name = "adminSettingsToolStripMenuItem";
-            this.adminSettingsToolStripMenuItem.Size = new System.Drawing.Size(292, 34);
+            this.adminSettingsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.adminSettingsToolStripMenuItem.Text = "Admin Settings";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(292, 34);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -332,7 +282,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Ebrima", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(425, 66);
+            this.label1.Location = new System.Drawing.Point(409, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(757, 65);
             this.label1.TabIndex = 12;
@@ -343,7 +293,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(743, 206);
+            this.label2.Location = new System.Drawing.Point(727, 206);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 27);
             this.label2.TabIndex = 13;
@@ -355,7 +305,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(680, 175);
+            this.label3.Location = new System.Drawing.Point(664, 175);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 27);
             this.label3.TabIndex = 14;
@@ -393,7 +343,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PAYROLLTEST.Properties.Resources.Jet1;
-            this.pictureBox1.Location = new System.Drawing.Point(30, 206);
+            this.pictureBox1.Location = new System.Drawing.Point(73, 206);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(432, 420);
@@ -484,7 +434,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1586, 836);
+            this.ClientSize = new System.Drawing.Size(1555, 836);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
@@ -527,19 +477,14 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openPayrollToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem benefitsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createNewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem savePayrollRecordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sSSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem philHealthToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taxTableToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem payrollReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stCutOffToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ndCutoffToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem employeeListSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminSettingsToolStripMenuItem;
         private System.Windows.Forms.Button btnpr1;
         private System.Windows.Forms.Button button4;
@@ -560,7 +505,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ToolStripMenuItem searchPayrollToolStripMenuItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;

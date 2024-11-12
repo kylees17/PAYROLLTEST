@@ -205,7 +205,7 @@ namespace PAYROLLTEST
                 txtSHolidayAmount.Text = "Invalid Input";
             }
             // Display the total amount
-            txtSHolidayAmount.Text = sHolAmount.ToString("F2");
+            txtSHolidayAmount.Text = sHolAmount.ToString("F0");
 
 
         }
@@ -240,7 +240,7 @@ namespace PAYROLLTEST
 
             // Calculate total amount
             double totalRDamt = RDAmount + totalOTrdAmount;
-            txtTotalRDamount.Text = totalRDamt.ToString("F2"); // Format to 2 decimal places
+            txtTotalRDamount.Text = totalRDamt.ToString("F0"); // Format to 2 decimal places
         }
 
 
@@ -293,7 +293,7 @@ namespace PAYROLLTEST
                         txtRestDayAmount.Text = "Invalid Input";
                     }
                     // Display the total amount
-                    txtRestDayAmount.Text = totalRDAmount.ToString("F2");
+                    txtRestDayAmount.Text = totalRDAmount.ToString("F0");
                 }
             }
         }
@@ -324,7 +324,7 @@ namespace PAYROLLTEST
                 if (double.TryParse(txtOtRestDayHrs.Text, out restDayOtHrs) && restDayOtHrs >= 0)
                 {
                     double restDayOtAmount = restDayOtHrs * (hourRate * 1.69); // calculate restday ot Amount
-                    txtRDayOtAmt.Text = restDayOtAmount.ToString("F2"); // Format to 2 decimal places
+                    txtRDayOtAmt.Text = restDayOtAmount.ToString("F0"); // Format to 2 decimal places
 
                 }
                 else
@@ -361,7 +361,7 @@ namespace PAYROLLTEST
 
             // Calculate total hours
             double totalRDhrs = restDayHrs + restDayOtHrs;
-            txtTotalRDhrs.Text = totalRDhrs.ToString();
+            txtTotalRDhrs.Text = totalRDhrs.ToString(("F0"));
 
             // Check for Rest Day Days input
             if (double.TryParse(txtRDdays.Text, out restDaydays) && restDaydays >= 0)
@@ -424,7 +424,7 @@ namespace PAYROLLTEST
                 }
 
                 // Display the total amount
-                txtOvertimeAmount.Text = totalAmount.ToString("F2"); // Format to 2 decimal places
+                txtOvertimeAmount.Text = totalAmount.ToString(" "); // Format to 2 decimal places
             }
 
         }
@@ -452,7 +452,7 @@ namespace PAYROLLTEST
                 if (double.TryParse(txtSpecHolOThrs.Text, out specialHolOtHrs) && specialHolOtHrs >= 0)
                 {
                     double specialHolOtAmount = specialHolOtHrs * (hourRate * 1.69); // calculate restday ot Amount
-                    txtSpecHolOTAmt.Text = specialHolOtAmount.ToString("F2"); // Format to 2 decimal places
+                    txtSpecHolOTAmt.Text = specialHolOtAmount.ToString("F0"); // Format to 2 decimal places
 
                 }
                 else
@@ -512,7 +512,7 @@ namespace PAYROLLTEST
                     txtSHandRDamount.Text = "Invalid Input";
                 }
                 // Display the total amount
-                txtSHandRDamount.Text = SHandRDamount.ToString("F2");
+                txtSHandRDamount.Text = SHandRDamount.ToString("F0");
             }
         }
 
@@ -538,7 +538,7 @@ namespace PAYROLLTEST
                 if (double.TryParse(txtSHandRDOThrs.Text, out sHandRDOtHrs) && sHandRDOtHrs >= 0)
                 {
                     double SHandRDOTamt = sHandRDOtHrs * (hourRate * 1.95); // calculate restday ot Amount
-                    txtSHandRDOTamt.Text = SHandRDOTamt.ToString("F2"); // Format to 2 decimal places
+                    txtSHandRDOTamt.Text = SHandRDOTamt.ToString("F0"); // Format to 2 decimal places
 
                 }
                 else
@@ -573,7 +573,7 @@ namespace PAYROLLTEST
                 if (double.TryParse(txtLHolidayHrs.Text, out LHolidayOThrs) && LHolidayOThrs >= 0)
                 {
                     double LHolidayAmount = LHolidayOThrs * (hourRate * 1.95); // calculate restday ot Amount
-                    txtLHolidayOTAmount.Text = LHolidayAmount.ToString("F2"); // Format to 2 decimal places
+                    txtLHolidayOTAmount.Text = LHolidayAmount.ToString("F0"); // Format to 2 decimal places
 
                 }
                 else
@@ -634,7 +634,7 @@ namespace PAYROLLTEST
                         txtLHolidayAmount.Text = "Invalid Input";
                     }
                     // Display the total amount
-                    txtLHolidayAmount.Text = LHolidayamount.ToString("F2");
+                    txtLHolidayAmount.Text = LHolidayamount.ToString("F0");
                 }
             }
         }
@@ -689,7 +689,7 @@ namespace PAYROLLTEST
                         txtLHandRDAmount.Text = "Invalid Input";
                     }
                     // Display the total amount
-                    txtLHandRDAmount.Text = LHandRDAmount.ToString("F2");
+                    txtLHandRDAmount.Text = LHandRDAmount.ToString("F0");
                 }
             }
 
@@ -720,7 +720,7 @@ namespace PAYROLLTEST
                 if (double.TryParse(txtLHandRDOThrs.Text, out LHandRDOThrs) && LHandRDOThrs >= 0)
                 {
                     double LHandRDOTAmount = LHandRDOThrs * (hourRate * 3.38); // calculate restday ot Amount
-                    txtLHandRDOTamount.Text = LHandRDOTAmount.ToString("F2"); // Format to 2 decimal places                                 
+                    txtLHandRDOTamount.Text = LHandRDOTAmount.ToString("F0"); // Format to 2 decimal places                                 
                 }
 
                 else
@@ -839,7 +839,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtNDworkingDayhrs.Text, out NDworkingDayhrs) && NDworkingDayhrs >= 0)
             {
                 double NDworkingDayAmount = NDworkingDayhrs * (hourRate * 0.15);
-                txtNDworkingDayAmount.Text = NDworkingDayAmount.ToString("F2");
+                txtNDworkingDayAmount.Text = NDworkingDayAmount.ToString("F0");
 
             }
             else
@@ -868,7 +868,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtNDOTworkingDayhrs.Text, out NDOTworkingDayhrs) && NDOTworkingDayhrs >= 0)
             {
                 double NDOTworkingDayAmount = NDOTworkingDayhrs * (hourRate * 0.13);
-                txtNDOTworkingDayAmount.Text = NDOTworkingDayAmount.ToString("F2");
+                txtNDOTworkingDayAmount.Text = NDOTworkingDayAmount.ToString("F0");
 
             }
             else
@@ -896,7 +896,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtNDLegalHolidayHrs.Text, out NDLegalHolidayHrs) && NDLegalHolidayHrs >= 0)
             {
                 double NDLegalHolidayAmt = NDLegalHolidayHrs * (hourRate * 0.10);
-                txtNDLegalHolidayAmt.Text = NDLegalHolidayAmt.ToString("F2");
+                txtNDLegalHolidayAmt.Text = NDLegalHolidayAmt.ToString("F0");
 
             }
             else
@@ -924,7 +924,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtNDOTLegalHolidayHrs.Text, out NDOTLegalHolidayHrs) && NDOTLegalHolidayHrs >= 0)
             {
                 double NDOTLegalHolidayAmt = NDOTLegalHolidayHrs * (hourRate * 0.26);
-                txtNDOTLegalHolidayAmt.Text = NDOTLegalHolidayAmt.ToString("F2");
+                txtNDOTLegalHolidayAmt.Text = NDOTLegalHolidayAmt.ToString("F0");
 
             }
             else
@@ -952,7 +952,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtNDRHandLHhrs.Text, out NDRHandLHhrs) && NDRHandLHhrs >= 0)
             {
                 double NDRHandLHamount = NDRHandLHhrs * (hourRate * 0.26);
-                txtNDRHandLHamount.Text = NDRHandLHamount.ToString("F2");
+                txtNDRHandLHamount.Text = NDRHandLHamount.ToString("F0");
 
             }
             else
@@ -980,7 +980,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtNDotRHandLHhrs.Text, out NDotRHandLHhrs) && NDotRHandLHhrs >= 0)
             {
                 double NDotRHandLHamount = NDotRHandLHhrs * (hourRate * 0.338);
-                txtNDotRHandLHamount.Text = NDotRHandLHamount.ToString("F2");
+                txtNDotRHandLHamount.Text = NDotRHandLHamount.ToString("F0");
 
             }
             else
@@ -1008,7 +1008,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtNDonSHorRDhrs.Text, out NDonSHorRDhrs) && NDonSHorRDhrs >= 0)
             {
                 double NDonSHorRDAmount = NDonSHorRDhrs * (hourRate * 0.13);
-                txtNDonSHorRDAmount.Text = NDonSHorRDAmount.ToString("F2");
+                txtNDonSHorRDAmount.Text = NDonSHorRDAmount.ToString("F0");
 
             }
             else
@@ -1038,7 +1038,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtNDOTonSHorRDhrs.Text, out NDOTonSHorRDhrs) && NDOTonSHorRDhrs >= 0)
             {
                 double NDOTonSHorRDAmt = NDOTonSHorRDhrs * (hourRate * 0.169);
-                txtNDOTonSHorRDAmt.Text = NDOTonSHorRDAmt.ToString("F2");
+                txtNDOTonSHorRDAmt.Text = NDOTonSHorRDAmt.ToString("F0");
 
             }
             else
@@ -1069,7 +1069,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtNDSpecHolAndRestdayHrs.Text, out NDSpecHolAndRestdayHrs) && NDSpecHolAndRestdayHrs >= 0)
             {
                 double NDSpecHolAndRestdayAmt = NDSpecHolAndRestdayHrs * (hourRate * 0.15);
-                txtNDSpecHolAndRestdayAmt.Text = NDSpecHolAndRestdayAmt.ToString("F2");
+                txtNDSpecHolAndRestdayAmt.Text = NDSpecHolAndRestdayAmt.ToString("F0");
 
             }
             else
@@ -1099,7 +1099,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtNDOTSpecHolAndRestdayHrs.Text, out NDOTSpecHolAndRestdayHrs) && NDOTSpecHolAndRestdayHrs >= 0)
             {
                 double NDOTSpecHolAndRestdayAmt = NDOTSpecHolAndRestdayHrs * (hourRate * 0.195);
-                txtNDOTSpecHolAndRestdayAmt.Text = NDOTSpecHolAndRestdayAmt.ToString("F2");
+                txtNDOTSpecHolAndRestdayAmt.Text = NDOTSpecHolAndRestdayAmt.ToString("F0");
 
             }
             else
@@ -1196,7 +1196,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtLeavewithPaySickDays.Text, out LeavewithPaySickDays) && LeavewithPaySickDays >= 0)
             {
                 double leavewithPaySickAmount = LeavewithPaySickDays * dailyRate;
-                txtleavewithPaySickAmount.Text = leavewithPaySickAmount.ToString("F2");
+                txtleavewithPaySickAmount.Text = leavewithPaySickAmount.ToString("F0");
 
             }
             else
@@ -1224,7 +1224,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtLeavewithPayVacationDays.Text, out LeavewithPayVacationDays) && LeavewithPayVacationDays >= 0)
             {
                 double LeavewithPayVacationAmount = LeavewithPayVacationDays * dailyRate;
-                txtLeavewithPayVacationAmount.Text = LeavewithPayVacationAmount.ToString("F2");
+                txtLeavewithPayVacationAmount.Text = LeavewithPayVacationAmount.ToString("F0");
 
             }
             else
@@ -1257,7 +1257,7 @@ namespace PAYROLLTEST
             otherTaxableTwo = TryParseInput(txtOtherTaxableTwo.Text);
 
             double TotalTaxableAmt = hazzardpay + coLa + incentive + commission + calamityLeave + otherTaxableTwo;
-            txtTotaltaxableAmount.Text = TotalTaxableAmt.ToString();
+            txtTotaltaxableAmount.Text = TotalTaxableAmt.ToString(("F0"));
         }
 
         private void TotalNonTaxableAmt()
@@ -1288,7 +1288,7 @@ namespace PAYROLLTEST
             ThirtheenMonthPay = TryParseInput(txt13monthPay.Text);
 
             double TotalNonTaxableAmount = deMinimis + IncentiveProgram + Bonus + Column3 + LaundryAllowance + MealAllowance + CompanyLoan + ThirtheenMonthPay;
-            txtTotalNonTaxableAmt.Text = TotalNonTaxableAmount.ToString();
+            txtTotalNonTaxableAmt.Text = TotalNonTaxableAmount.ToString(("F0"));
 
         }
 
@@ -1321,7 +1321,7 @@ namespace PAYROLLTEST
             TotalNonTaxableAmount = TryParseInput(txtTotalNonTaxableAmt.Text);
 
             double TotalGrossPay = BasicPay + OvertimeAmount + TotalRestDayAmount + TotalHolidayAmount + LeavewithPaySick + LeavewithPayVacation + TotalNightDifferential + TotalTaxableAmount + TotalNonTaxableAmount;
-            txtTotalGrossPay.Text = TotalGrossPay.ToString();
+            txtTotalGrossPay.Text = TotalGrossPay.ToString(("F0"));
 
         }
 
@@ -1349,7 +1349,7 @@ namespace PAYROLLTEST
                 if (double.TryParse(txtLateMin.Text, out LateMinutes) && LateMinutes >= 0)
                 {
                     double LateMinAmt = LateMinutes * minuteRate; // calculate restday ot Amount
-                    txtLateMinAmount.Text = LateMinAmt.ToString("F2"); // Format to 2 decimal places
+                    txtLateMinAmount.Text = LateMinAmt.ToString("F0"); // Format to 2 decimal places
 
                 }
                 else
@@ -1381,7 +1381,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtLateHours.Text, out LateHours) && LateHours >= 0)
             {
                 double LateHourAmount = LateHours * hourRate;
-                txtLateHourAmount.Text = LateHourAmount.ToString("F2");
+                txtLateHourAmount.Text = LateHourAmount.ToString("F0");
 
             }
             else
@@ -1409,7 +1409,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtAbsentDays.Text, out AbsentDays) && AbsentDays >= 0)
             {
                 double AbsentAmount = AbsentDays * dailyRate;
-                txtAbsentAmt.Text = AbsentAmount.ToString("F2");
+                txtAbsentAmt.Text = AbsentAmount.ToString("F0");
 
             }
             else
@@ -1439,7 +1439,7 @@ namespace PAYROLLTEST
 
 
             double TotalTard = LateMinAmt + LateHourAmt + AbsentAmount;
-            txtTotalTardiness.Text = TotalTard.ToString();
+            txtTotalTardiness.Text = TotalTard.ToString(("F0"));
         }
 
         private void SSSbasicPayBased()
@@ -1461,7 +1461,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtTotalTardiness.Text, out TotalTardiness) && TotalTardiness >= 0)
             {
                 double SSSBasicPayBased = BasicPay - TotalTardiness;
-                txtSSSBasicPayBased.Text = SSSBasicPayBased.ToString("F2");
+                txtSSSBasicPayBased.Text = SSSBasicPayBased.ToString("F0");
 
             }
             else
@@ -1490,7 +1490,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtTotalTardiness.Text, out TotalTardiness) && TotalTardiness >= 0)
             {
                 double SSSGrossBase = TotalGrossPay - TotalTardiness;
-                txtSSSGrossBase.Text = SSSGrossBase.ToString("F2");
+                txtSSSGrossBase.Text = SSSGrossBase.ToString("F0");
 
             }
             else
@@ -1521,7 +1521,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtTotalTardiness.Text, out TotalTardiness) && TotalTardiness >= 0)
             {
                 double PHICBasedPay = BasicPay - TotalTardiness;
-                txtPHICBasedPay.Text = PHICBasedPay.ToString("F2");
+                txtPHICBasedPay.Text = PHICBasedPay.ToString("F0");
 
             }
             else
@@ -1550,7 +1550,7 @@ namespace PAYROLLTEST
 
 
             double TotalSocialCost = SSS + PHIC + HDMF;
-            txtTotalSocialCost.Text = TotalSocialCost.ToString();
+            txtTotalSocialCost.Text = TotalSocialCost.ToString(("F0"));
         }
 
         private void TotalGovernmentLoans()
@@ -1574,7 +1574,7 @@ namespace PAYROLLTEST
 
 
             double TotalGovernmentLoan = SSSsalaryLoan + SSSCalamityLoan + HDMFSalaryLoan + HDMFCalamityLoan;
-            txtTotalGovernmentLoans.Text = TotalGovernmentLoan.ToString();
+            txtTotalGovernmentLoans.Text = TotalGovernmentLoan.ToString(("F0"));
 
         }
 
@@ -1598,7 +1598,7 @@ namespace PAYROLLTEST
 
 
             double TotalOtherLoan = CompanyLoan + OtherLoan1 + OtherLoan2 + OtherLoan3;
-            txtTotalOtherLoans.Text = TotalOtherLoan.ToString();
+            txtTotalOtherLoans.Text = TotalOtherLoan.ToString(("F0"));
 
         }
 
@@ -1633,7 +1633,7 @@ namespace PAYROLLTEST
             MedicalDeduction = TryParseInput(txtMedicalExpense.Text);
 
             double TotalDeductions = TotalTardiness + TotalSocialCost + TotalGovernmentLoan + TotalOtherLoan + AdjustmentOrRefund + SalaryDeduction + Deductions + LateManualTeraphytechniques + UniformDeduction + MedicalDeduction;
-            txtTotalDeductions.Text = TotalDeductions.ToString();
+            txtTotalDeductions.Text = TotalDeductions.ToString(("F0"));
 
 
         }
@@ -1658,7 +1658,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtTotalDeductions.Text, out TotalDeductions) && TotalDeductions >= 0)
             {
                 double TotalAmountDue = TotalGrossPay - TotalDeductions;
-                txtAmountDue.Text = TotalAmountDue.ToString("F2");
+                txtAmountDue.Text = TotalAmountDue.ToString("F0");
 
             }
             else
@@ -1687,7 +1687,7 @@ namespace PAYROLLTEST
             if (double.TryParse(txtTotalNonTaxableAmt.Text, out NonTaxable) && NonTaxable >= 0)
             {
                 double TaxableIncome = TotalGrossPay - NonTaxable;
-                txtTaxableIncome.Text = TaxableIncome.ToString("F2");
+                txtTaxableIncome.Text = TaxableIncome.ToString("F0");
 
             }
             else
@@ -1714,7 +1714,7 @@ namespace PAYROLLTEST
 
 
             double Netpay = AmountDue - withHoldingTax;
-            txtNetPay.Text = Netpay.ToString();
+            txtNetPay.Text = Netpay.ToString(("F0"));
 
         }
 
@@ -1726,7 +1726,7 @@ namespace PAYROLLTEST
                 if (double.TryParse(txtBasicPay.Text, out BasicPay))
                 {
                     double thirtheenth = BasicPay; // Replace 2 with the divisor
-                    txt13thMonthBased.Text = thirtheenth.ToString("");
+                    txt13thMonthBased.Text = thirtheenth.ToString("F0");
                 }
                 else
                 {
@@ -1748,7 +1748,7 @@ namespace PAYROLLTEST
                 if (double.TryParse(txt13thMonthBased.Text, out Thirtheenth))
                 {
                     double Third = Thirtheenth / 12; // Replace 2 with the divisor
-                    txt13thmonthforthisCutoff.Text = Third.ToString("F2");
+                    txt13thmonthforthisCutoff.Text = Third.ToString("F0");
                 }
                 else
                 {
@@ -1852,7 +1852,7 @@ namespace PAYROLLTEST
                     if (double.TryParse(textBox4.Text, out value))
                     {
                         double dividedValue = value / 2; // Replace 2 with the divisor
-                        textBox8.Text = dividedValue.ToString("F2");
+                        textBox8.Text = dividedValue.ToString("F0");
                     }
                     else
                     {
@@ -2082,7 +2082,7 @@ namespace PAYROLLTEST
                 }
 
                 // Update the TextBox with the result
-                txtEEContribution.Text = result.ToString();
+                txtEEContribution.Text = result.ToString(("F0"));
             }
             else
             {
@@ -2111,11 +2111,11 @@ namespace PAYROLLTEST
                 if (int.TryParse(textBox3.Text, out daysOfWork))
                 {
                     double basicPay = daysOfWork * dailyRate;
-                    txtBasicPay.Text = basicPay.ToString("F2"); // Format to 2 decimal places
+                    txtBasicPay.Text = basicPay.ToString("F0"); // Format to 2 decimal places
 
                     // Calculate minute rate pay
                     double minuteRate = dailyRate / (8 * 60); // Assuming an 8-hour workday with 60 minutes per hour
-                    txtPMinRate.Text = minuteRate.ToString("F2");
+                    txtPMinRate.Text = minuteRate.ToString("F0");
 
                 }
                 else
@@ -2123,7 +2123,7 @@ namespace PAYROLLTEST
                     txtBasicPay.Text = "Invalid input for days of work";
                 }
                 double hourRate = dailyRate / 8; // Assuming an 8-hour workday
-                txtPNoHours.Text = hourRate.ToString("F2");
+                txtPNoHours.Text = hourRate.ToString("F0");
             }
 
             {
@@ -2157,15 +2157,15 @@ namespace PAYROLLTEST
                     {
                         // Calculate basic pay
                         double basicPay = workHours * (dailyRate / 8);
-                        txtBasicPay.Text = basicPay.ToString("F2"); // Format to 2 decimal places
+                        txtBasicPay.Text = basicPay.ToString("F0"); // Format to 2 decimal places
 
                         // Calculate minute rate pay
                         double minuteRate = dailyRate / (8 * 60); // Assuming an 8-hour workday with 60 minutes per hour
-                        txtPMinRate.Text = minuteRate.ToString("F2");
+                        txtPMinRate.Text = minuteRate.ToString("F0");
 
                         // Calculate hourly rate
                         double hourRate = dailyRate / 8; // Assuming an 8-hour workday
-                        txtPNoHours.Text = hourRate.ToString("F2");
+                        txtPNoHours.Text = hourRate.ToString("  ");
                     }
                     else
                     {
@@ -2183,15 +2183,15 @@ namespace PAYROLLTEST
                     if (int.TryParse(textBox3.Text, out daysOfWork) && daysOfWork >= 0)
                     {
                         double basicPay = daysOfWork * dailyRate;
-                        txtBasicPay.Text = basicPay.ToString("F2"); // Format to 2 decimal places
+                        txtBasicPay.Text = basicPay.ToString("F0"); // Format to 2 decimal places
 
                         // Calculate minute rate pay
                         double minuteRate = dailyRate / (8 * 60); // Assuming an 8-hour workday with 60 minutes per hour
-                        txtPMinRate.Text = minuteRate.ToString("F2");
+                        txtPMinRate.Text = minuteRate.ToString("F0");
 
                         // Calculate hourly rate
                         double hourRate = dailyRate / 8; // Assuming an 8-hour workday
-                        txtPNoHours.Text = hourRate.ToString("F2");
+                        txtPNoHours.Text = hourRate.ToString("F0");
                     }
                     else
                     {
@@ -2284,8 +2284,135 @@ namespace PAYROLLTEST
                     txtTypeRate.Text = da["TypeOfRate"].ToString();
                     textBox4.Text = da["MonthlyRate"].ToString();
                     txtPDailyrate.Text = da["DailyRate"].ToString();
+                    textBox8.Text = da["SemiMonthlySalary"].ToString();
+                    txtPDailyrate.Text = da["DailyRate"].ToString();
+                    textBox3.Text = da["DaysOfWork"].ToString();
                     txtSSSCUSTOMBASED.Text = da["SSSCUSTOMBASED"].ToString();
                     txtPHICcustom.Text = da["PHICCUSTOMBASED"].ToString();
+                    txtWorkhours.Text = da["HoursOfWork"].ToString();
+                    txtPNoHours.Text = da["HourlyRate"].ToString();
+                    txtPMinRate.Text = da["MinuteRate"].ToString();
+                    txtBasicPay.Text = da["BasicPay"].ToString();
+                    txtOvertimeMin.Text = da["OvertimeMins"].ToString();
+                    txtOvertimeHrs.Text = da["OvertimeHrs"].ToString();
+                    txtOvertimeAmount.Text = da["OvertimeAmount"].ToString();
+                    txtRestDayHrs.Text = da["RestDaysHrs"].ToString();
+                    txtRDdays.Text = da["RestDaysDays"].ToString();
+                    txtRestDayAmount.Text = da["RestDayAmount"].ToString();
+                    txtOtRestDayHrs.Text = da["RestDayOThrs"].ToString();
+                    txtRDayOtAmt.Text = da["RestDayOTAmount"].ToString();
+                    txtTotalRDhrs.Text = da["TotalEmployeeRestDayHrs"].ToString();
+                    txtTotalRDdays.Text = da["TotalEmployeeRestDayDays"].ToString();
+                    txtTotalRDamount.Text = da["TotalEmployeeRestDayAmount"].ToString();
+                    txtSHolidayhrs.Text = da["SpecialHolidayHrs"].ToString();
+                    txtSHolidaydays.Text = da["SpecialHolidayDays"].ToString();
+                    txtSHolidayAmount.Text = da["SpecialHolidayAmount"].ToString();
+                    txtSpecHolOThrs.Text = da["SpecialHolidayOTHrs"].ToString();
+                    txtSpecHolOTAmt.Text = da["SpecialHolidayOTAmount"].ToString();
+                    txtSHandRDhrs.Text = da["SpecialHolidayAndRestDayHrs"].ToString();
+                    txtSHandRDOThrs.Text = da["SpecialHolidayAndRestDayOTHrs"].ToString();
+                    txtSHandRDOTamt.Text = da["SpecialHolidayAndRestDayOTAmount"].ToString();
+                    txtLHolidayHrs.Text = da["LegalHolidayHrs"].ToString();
+                    txtLholidaydays.Text = da["LegalHolidayDays"].ToString();
+                    txtLHolidayAmount.Text = da["LegalHolidayAmount"].ToString();
+                    txtLHolidayOThrs.Text = da["LegalHolidayOTHrs"].ToString();
+                    txtLHolidayOTAmount.Text = da["LegalOTAmount"].ToString();
+                    txtLHandRDhrs.Text = da["LegalHolidayAndRestDayHrs"].ToString();
+                    txtLHandRDdays.Text = da["LegalHolidayAndRestDaydays"].ToString();
+                    txtLHandRDAmount.Text = da["LegalHolidayAndRestDayAmount"].ToString();
+                    txtLHandRDOThrs.Text = da["LegalHolidayAndRestDayOTHrs"].ToString();
+                    txtLHandRDOTamount.Text = da["LegalHolidayAndRestDayOTAmount"].ToString();
+                    txtTotalEmpHolidayHrs.Text = da["TotalEmployeeHolidayHrs"].ToString();
+                    txtTotalEmpHolidayDays.Text = da["TotalEmployeeHolidayDays"].ToString();
+                    txtTotalEmpHolidayAmt.Text = da["TotalEmployeeHolidayAmount"].ToString();
+                    txtNDworkingDayhrs.Text = da["NDonworkingdayHrs"].ToString();
+                    txtNDworkingDayAmount.Text = da["NDonworkingdayAmount"].ToString();
+                    txtNDOTworkingDayhrs.Text = da["NDOTonworkingdayHrs"].ToString();
+                    txtNDOTworkingDayAmount.Text = da["NDOTonworkingdayAmount"].ToString();
+                    txtNDLegalHolidayHrs.Text = da["NDonLegalHolidayHrs"].ToString();
+                    txtNDLegalHolidayAmt.Text = da["NDonLegalHolidayAmount"].ToString();
+                    txtNDOTLegalHolidayHrs.Text = da["NDOTonLegalHolidayHrs"].ToString();
+                    txtNDOTLegalHolidayAmt.Text = da["NDOTonLegalHolidayAmount"].ToString();
+                    txtNDRHandLHhrs.Text = da["NDonRestDayLegalHolidayHrs"].ToString();
+                    txtNDRHandLHamount.Text = da["NDonLegalHolidayRestdayAmount"].ToString();
+                    txtNDotRHandLHhrs.Text = da["NDOTonRestDayLegalHolidayHrs"].ToString();
+                    txtNDotRHandLHamount.Text = da["NDOTonLegalHolidayRestdayAmount"].ToString();
+                    txtNDonSHorRDhrs.Text = da["NDonSpecialHolidayorRestDayHrs"].ToString();
+                    txtNDonSHorRDAmount.Text = da["NDonSpecialHolidayorRestDayAmount"].ToString();
+                    txtNDOTonSHorRDhrs.Text = da["NDOTonSpecialHolidayorRestDayHrs"].ToString();
+                    txtNDOTonSHorRDAmt.Text = da["NDOTonSpecialHolidayorRestDayAmount"].ToString();
+                    txtNDSpecHolAndRestdayHrs.Text = da["NDSpecialHolidayandRestDayHrs"].ToString();
+                    txtNDSpecHolAndRestdayAmt.Text = da["NDSpecialHolidayandRestDayAmount"].ToString();
+                    txtNDOTSpecHolAndRestdayHrs.Text = da["NDOTSpecialHolidayandRestDayHrs"].ToString();
+                    txtNDOTSpecHolAndRestdayAmt.Text = da["NDOTSpecialHolidayandRestDayAmount"].ToString();
+                    txtTotalNDhrs.Text = da["TotalNDHrs"].ToString();
+                    txtTotalNDAmt.Text = da["TotalNDAmount"].ToString();
+                    txtSalaryAdjust.Text = da["SalaryAdjustment"].ToString();
+                    txtLeavewithPaySickDays.Text = da["LeaveWithPaySickDays"].ToString();
+                    txtLeavewithPayVacationAmount.Text = da["LeaveWithPayVacationDays"].ToString();
+                    txtleavewithPaySickAmount.Text = da["LeaveWithPaySickAmount"].ToString();
+                    txtLeavewithPayVacationAmount.Text = da["LeaveWithPayVacationAmount"].ToString();
+                    txtCOLA.Text = da["COLA"].ToString();
+                    txtIncentives.Text = da["Incentives"].ToString();
+                    txtHazzardPay.Text = da["HazzardPay"].ToString();
+                    txtCommission.Text = da["Commission"].ToString();
+                    txtCalamityLeave.Text = da["CalamityLeave"].ToString();
+                    txtOtherTaxableTwo.Text = da["OtherTaxable2"].ToString();
+                    txtTotaltaxableAmount.Text = da["TotalTaxableAmount"].ToString();
+                    txtDeminimis.Text = da["DeMinimis"].ToString();
+                    txtIncentiveProgram.Text = da["IncentiveProgram"].ToString();
+                    txtBonus.Text = da["Bonus"].ToString();
+                    txtColumn3.Text = da["Column3"].ToString();
+                    txtLaundryAllowance.Text = da["LaundryAllowance"].ToString();
+                    txtMealAllowance.Text = da["MealAllowance"].ToString();
+                    txtCompanyLoan.Text = da["CompanyLoan"].ToString();
+                    txt13monthPay.Text = da["T13MonthPay"].ToString();
+                    txtTotalNonTaxableAmt.Text = da["TotalNonTaxable"].ToString();
+                    txtTotalGrossPay.Text = da["TotalGrossPay"].ToString();
+                    txtLateMin.Text = da["LateMin"].ToString();
+                    txtLateMinAmount.Text = da["LateMinAmount"].ToString();
+                    txtLateHours.Text = da["LateHour"].ToString();
+                    txtLateHourAmount.Text = da["LateAmount"].ToString();
+                    txtAbsentDays.Text = da["AbsentOrWithoutLWPDays"].ToString();
+                    txtAbsentAmt.Text = da["AbsentOrWithoutLWPAmount"].ToString();
+                    txtTotalTardiness.Text = da["TotalTardiness"].ToString();
+                    txtSSSBasicPayBased.Text = da["SSSBasicPayBased"].ToString();
+                    txtSSSGrossBase.Text = da["SSSGrossBased"].ToString();
+                    comboBox1.Text = da["SSSstatus"].ToString();
+                    txtEEContribution.Text = da["SSS"].ToString();
+                    txtPHICBasedPay.Text = da["PHICBasicPayBased"].ToString();
+                    comboBox2.Text = da["PHICstatus"].ToString();
+                    txtPHIC.Text = da["PHIC"].ToString();
+                    comboBox3.Text = da["HDMFSTATUS"].ToString();
+                    txtHDMf.Text = da["HDMF"].ToString();
+                    txtTotalSocialCost.Text = da["TotalSocialCost"].ToString();
+                    txtSSSSalaryLoan.Text = da["SSSsalaryloan"].ToString();
+                    txtSSSCalamityLoan.Text = da["SSSCalamityLoan"].ToString();
+                    txtHdmfSalaryLoan.Text = da["HDMFSalaryLoan"].ToString();
+                    txtHdmfCalamityLoan.Text = da["HDMFCalamityLoan"].ToString();
+                    txtTotalGovernmentLoans.Text = da["TotalGovernmentLoans"].ToString();
+                    txtCompanyLoans.Text = da["CompanyLoans"].ToString();
+                    txtOtherLoan1.Text = da["OtherLoan1"].ToString();
+                    txtOtherLoan2.Text = da["OtherLoan2"].ToString();
+                    txtotherLoan3.Text = da["OtherLoan3"].ToString();
+                    txtTotalOtherLoans.Text = da["TotalOtherLoans"].ToString();
+                    txtAdjustmentOrRefund.Text = da["AdjustmentOrRefunds"].ToString();
+                    txtSalaryDeductions.Text = da["SalaryDeduction"].ToString();
+                    txtDeduction.Text = da["Deductions"].ToString();
+                    txtManualTeraphyTechniques.Text = da["ManualTeraphyTechniques"].ToString();
+                    txtuniformdeductions.Text = da["UniformDeduction"].ToString();
+                    txtMedicalExpense.Text = da["MedicalExpensesDeduction"].ToString();
+                    txtTotalDeductions.Text = da["TotalDeductions"].ToString();
+                    txtAmountDue.Text = da["AmountDue"].ToString();
+                    txtTaxableIncome.Text = da["TaxableIncome"].ToString();
+                    txtWithholdingTax.Text = da["WithholdingTax"].ToString();
+                    txtNetPay.Text = da["NetPay"].ToString();
+                    txt13thMonthBased.Text = da["T13thmonthbased"].ToString();
+                    txt13thmonthforthisCutoff.Text = da["T13thMonthforthisCutoff"].ToString();
+                    txtSalaryType.Text = da["SalaryType"].ToString();
+                    txtAtm.Text = da["ATM"].ToString();
+                    txtCash.Text = da["CASH"].ToString();
+                    txtATMNumber.Text = da["ATM#"].ToString();
 
 
                 }
@@ -2352,7 +2479,7 @@ namespace PAYROLLTEST
                 }
 
                 // Update the TextBox with the result
-                txtEEContribution.Text = result.ToString();
+                txtEEContribution.Text = result.ToString(("F0"));
             }
             else
             {
@@ -2477,7 +2604,7 @@ namespace PAYROLLTEST
                 }
 
                 // Update the TextBox with the result
-                txtPHIC.Text = result.ToString("F2"); // Ensure two decimal places for display
+                txtPHIC.Text = result.ToString("F0"); // Ensure two decimal places for display
             }
             else
             {
@@ -2624,6 +2751,7 @@ namespace PAYROLLTEST
                         SSSBasicPayBased=@SSSBasicPayBased, 
                         SSSGrossBased=@SSSGrossBased, 
                         SSS=@SSS, 
+                        SSSstatus=@SSSstatus,
                         PHICBasicPayBased=@PHICBasicPayBased, 
                         PHICstatus=@PHICstatus, 
                         PHIC=@PHIC,
@@ -2666,26 +2794,26 @@ namespace PAYROLLTEST
                     cmd.Parameters.AddWithValue("@SSSCUSTOMBASED", int.TryParse(txtSSSCUSTOMBASED.Text, out int SSSCustomBased) ? (object)SSSCustomBased : DBNull.Value);
                     cmd.Parameters.AddWithValue("@PHICCUSTOMBASED", int.TryParse(txtPHICcustom.Text, out int PhicCustom) ? (object)PhicCustom : DBNull.Value);
                     cmd.Parameters.AddWithValue("@HoursOfWork", int.TryParse(txtWorkhours.Text, out int HoursOfWork) ? (object)HoursOfWork : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@HourlyRate", int.TryParse(txtPNoHours.Text, out int HourlyRate) ? (object)HourlyRate : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@MinuteRate", int.TryParse(txtPMinRate.Text, out int MinuteRate) ? (object)MinuteRate : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@BasicPay", int.TryParse(txtBasicPay.Text, out int BasicPay) ? (object)BasicPay : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@OvertimeMins", int.TryParse(txtOvertimeMin.Text, out int OvertimeMins) ? (object)OvertimeMins : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@HourlyRate", decimal.TryParse(txtPNoHours.Text, out decimal HourlyRate) ? (object)HourlyRate : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@MinuteRate", decimal.TryParse(txtPMinRate.Text, out decimal MinuteRate) ? (object)MinuteRate : DBNull.Value); 
+                    cmd.Parameters.AddWithValue("@BasicPay", decimal.TryParse(txtBasicPay.Text, out decimal BasicPay) ? (object)BasicPay : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@OvertimeMins", decimal.TryParse(txtOvertimeMin.Text, out decimal OvertimeMins) ? (object)OvertimeMins : DBNull.Value);
                     cmd.Parameters.AddWithValue("@OvertimeHrs", int.TryParse(txtOvertimeHrs.Text, out int OvertimeHrs) ? (object)OvertimeHrs : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@OvertimeAmount", int.TryParse(txtOvertimeAmount.Text, out int OvertimeAmount) ? (object)OvertimeAmount : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@RestDaysHrs", int.TryParse(txtRestDayHrs.Text, out int RestDaysHrs) ? (object)RestDaysHrs : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@OvertimeAmount", decimal.TryParse(txtOvertimeAmount.Text, out decimal OvertimeAmount) ? (object)OvertimeAmount : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@RestDaysHrs", decimal.TryParse(txtRestDayHrs.Text, out decimal RestDaysHrs) ? (object)RestDaysHrs : DBNull.Value);
                     cmd.Parameters.AddWithValue("@RestDaysDays", int.TryParse(txtRDdays.Text, out int RestDaysDays) ? (object)RestDaysDays : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@RestDayAmount", int.TryParse(txtRestDayAmount.Text, out int RestDayAmount) ? (object)RestDayAmount : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@RestDayOThrs", int.TryParse(txtOtRestDayHrs.Text, out int RestDayOThrs) ? (object)RestDayOThrs : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@RestDayOTAmount", int.TryParse(txtRDayOtAmt.Text, out int RestDayOTAmount) ? (object)RestDayOTAmount : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@TotalEmployeeRestDayHrs", int.TryParse(txtTotalRDhrs.Text, out int TotalEmployeeRestDayHrs) ? (object)TotalEmployeeRestDayHrs : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@RestDayAmount", decimal.TryParse(txtRestDayAmount.Text, out decimal RestDayAmount) ? (object)RestDayAmount : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@RestDayOThrs", decimal.TryParse(txtOtRestDayHrs.Text, out decimal RestDayOThrs) ? (object)RestDayOThrs : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@RestDayOTAmount", decimal.TryParse(txtRDayOtAmt.Text, out decimal RestDayOTAmount) ? (object)RestDayOTAmount : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@TotalEmployeeRestDayHrs", decimal.TryParse(txtTotalRDhrs.Text, out decimal TotalEmployeeRestDayHrs) ? (object)TotalEmployeeRestDayHrs : DBNull.Value);
                     cmd.Parameters.AddWithValue("@TotalEmployeeRestDayDays", int.TryParse(txtTotalRDdays.Text, out int TotalEmployeeRestDayDays) ? (object)TotalEmployeeRestDayDays : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@TotalEmployeeRestDayAmount", int.TryParse(txtTotalRDamount.Text, out int TotalEmployeeRestDayAmount) ? (object)TotalEmployeeRestDayAmount : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@SpecialHolidayHrs", int.TryParse(txtSHolidayhrs.Text, out int SpecialHolidayHrs) ? (object)SpecialHolidayHrs : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@TotalEmployeeRestDayAmount", decimal.TryParse(txtTotalRDamount.Text, out decimal TotalEmployeeRestDayAmount) ? (object)TotalEmployeeRestDayAmount : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@SpecialHolidayHrs", decimal.TryParse(txtSHolidayhrs.Text, out decimal SpecialHolidayHrs) ? (object)SpecialHolidayHrs : DBNull.Value);
                     cmd.Parameters.AddWithValue("@SpecialHolidayDays", int.TryParse(txtSHolidaydays.Text, out int SpecialHolidayDays) ? (object)SpecialHolidayDays : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@SpecialHolidayAmount", int.TryParse(txtSHolidayAmount.Text, out int SpecialHolidayAmount) ? (object)SpecialHolidayAmount : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@SpecialHolidayOTHrs", int.TryParse(txtSpecHolOThrs.Text, out int SpecialHolidayOTHrs) ? (object)SpecialHolidayOTHrs : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@SpecialHolidayOTAmount", int.TryParse(txtSpecHolOTAmt.Text, out int SpecialHolidayOTAmount) ? (object)SpecialHolidayOTAmount : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@SpecialHolidayAndRestDayHrs", int.TryParse(txtSHandRDhrs.Text, out int SpecialHolidayAndRestDayHrs) ? (object)SpecialHolidayAndRestDayHrs : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@SpecialHolidayAmount", decimal.TryParse(txtSHolidayAmount.Text, out decimal SpecialHolidayAmount) ? (object)SpecialHolidayAmount : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@SpecialHolidayOTHrs", decimal.TryParse(txtSpecHolOThrs.Text, out decimal SpecialHolidayOTHrs) ? (object)SpecialHolidayOTHrs : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@SpecialHolidayOTAmount", decimal.TryParse(txtSpecHolOTAmt.Text, out decimal SpecialHolidayOTAmount) ? (object)SpecialHolidayOTAmount : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@SpecialHolidayAndRestDayHrs", decimal.TryParse(txtSHandRDhrs.Text, out decimal SpecialHolidayAndRestDayHrs) ? (object)SpecialHolidayAndRestDayHrs : DBNull.Value);
                     cmd.Parameters.AddWithValue("@SpecialHolidayAndRestDayOTHrs", int.TryParse(txtSHandRDOThrs.Text, out int SpecialHolidayAndRestDayOTHrs) ? (object)SpecialHolidayAndRestDayOTHrs : DBNull.Value);
                     cmd.Parameters.AddWithValue("@SpecialHolidayAndRestDayOTAmount", int.TryParse(txtSHandRDOTamt.Text, out int SpecialHolidayAndRestDayOTAmount) ? (object)SpecialHolidayAndRestDayOTAmount : DBNull.Value);
                     cmd.Parameters.AddWithValue("@LegalHolidayHrs", int.TryParse(txtLHolidayHrs.Text, out int LegalHolidayHrs) ? (object)LegalHolidayHrs : DBNull.Value);
@@ -2697,7 +2825,7 @@ namespace PAYROLLTEST
                     cmd.Parameters.AddWithValue("@LegalHolidayAndRestDaydays", int.TryParse(txtLHandRDdays.Text, out int LegalHolidayAndRestDaydays) ? (object)LegalHolidayAndRestDaydays : DBNull.Value);
                     cmd.Parameters.AddWithValue("@LegalHolidayAndRestDayAmount", int.TryParse(txtLHandRDAmount.Text, out int LegalHolidayAndRestDayAmount) ? (object)LegalHolidayAndRestDayAmount : DBNull.Value);
                     cmd.Parameters.AddWithValue("@LegalHolidayAndRestDayOTHrs", int.TryParse(txtLHandRDOThrs.Text, out int LegalHolidayAndRestDayOTHrs) ? (object)LegalHolidayAndRestDayOTHrs : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@LegalHolidayAndRestDayOTAmount", int.TryParse(txtPHICcustom.Text, out int LegalHolidayAndRestDayOTAmount) ? (object)LegalHolidayAndRestDayOTAmount : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@LegalHolidayAndRestDayOTAmount", int.TryParse(txtLHandRDOTamount.Text, out int LegalHolidayAndRestDayOTAmount) ? (object)LegalHolidayAndRestDayOTAmount : DBNull.Value);
                     cmd.Parameters.AddWithValue("@TotalEmployeeHolidayHrs", int.TryParse(txtTotalEmpHolidayHrs.Text, out int TotalEmployeeHolidayHrs) ? (object)TotalEmployeeHolidayHrs : DBNull.Value);
                     cmd.Parameters.AddWithValue("@TotalEmployeeHolidayDays", int.TryParse(txtTotalEmpHolidayDays.Text, out int TotalEmployeeHolidayDays) ? (object)TotalEmployeeHolidayDays : DBNull.Value);
                     cmd.Parameters.AddWithValue("@TotalEmployeeHolidayAmount", int.TryParse(txtTotalEmpHolidayAmt.Text, out int TotalEmployeeHolidayAmount) ? (object)TotalEmployeeHolidayAmount : DBNull.Value);
@@ -2966,6 +3094,13 @@ namespace PAYROLLTEST
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_table_Click(object sender, EventArgs e)
+        {
+            Form5 form5 = new Form5();
+            form5.Show();
+           
         }
     }
 }

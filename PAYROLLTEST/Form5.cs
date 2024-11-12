@@ -33,28 +33,10 @@ namespace PAYROLLTEST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listView1.Columns.Clear(); // Clear existing columns
+            // Clear existing columns
+            listView1.Columns.Clear();
 
-            // Add columns to the ListView, adjusting width where necessary
-            listView1.Columns.Add("ID", 50, HorizontalAlignment.Left);
-            listView1.Columns.Add("Name Of Employee", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Email", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Employee ID", 100, HorizontalAlignment.Left);
-            listView1.Columns.Add("Department", 100, HorizontalAlignment.Left);
-            listView1.Columns.Add("Position", 100, HorizontalAlignment.Left);
-            listView1.Columns.Add("Type Of Rate", 100, HorizontalAlignment.Left);
-            listView1.Columns.Add("Monthly Rate", 100, HorizontalAlignment.Right);
-            listView1.Columns.Add("Monthly Rate Basis Days", 150, HorizontalAlignment.Right);
-            listView1.Columns.Add("Daily Rate", 100, HorizontalAlignment.Right);
-            listView1.Columns.Add("Daily Rate Amount from Monthly Rate", 150, HorizontalAlignment.Right);
-            listView1.Columns.Add("SSS CUSTOM BASED", 150, HorizontalAlignment.Right);
-            listView1.Columns.Add("PHIC CUSTOM BASED", 150, HorizontalAlignment.Right);
-            listView1.Columns.Add("SSSno", 120, HorizontalAlignment.Left);
-            listView1.Columns.Add("PHICno", 120, HorizontalAlignment.Left);
-            listView1.Columns.Add("HDMFno", 120, HorizontalAlignment.Left);
-            listView1.Columns.Add("TINno", 120, HorizontalAlignment.Left);
-
-            // Ensure the ListView uses details view
+            // Set the ListView to Details view
             listView1.View = View.Details;
 
             try
@@ -62,10 +44,48 @@ namespace PAYROLLTEST
                 con.Open();
 
                 // Fetch data from the database
-                string query = "SELECT ID, NameOfEmployee, Email, EmployeeID, Department, Position, " +
-                               "TypeOfRate, MonthlyRate, MonthlyRateBasisDays, DailyRate, " +
-                               "DailyRateAmountfromMonthlyRate, SSSCUSTOMBASED, PHICCUSTOMBASED, " +
-                               "SSSno, PHICno, HDMFno, TINno FROM Employee_new";
+                string query = @"SELECT ID, NameOfEmployee, Email, EmployeeID, Department, Position, 
+                     TypeOfRate, MonthlyRate, MonthlyRateBasisDays, DailyRate, 
+                     DailyRateAmountfromMonthlyRate,
+                     SSSno, PHICno, HDMFno, TINno, 
+                     DaysOfWork, HoursOfWork, HourlyRate, MinuteRate, BasicPay, 
+                     OvertimeMins, OvertimeHrs, OvertimeAmount, RestDaysHrs, RestDaysDays, 
+                     RestDayAmount, RestDayOThrs, RestDayOTAmount, TotalEmployeeRestDayHrs, 
+                     TotalEmployeeRestDayDays, TotalEmployeeRestDayAmount, SpecialHolidayHrs, 
+                     SpecialHolidayDays, SpecialHolidayAmount, SpecialHolidayOTHrs, 
+                     SpecialHolidayOTAmount, SpecialHolidayAndRestDayHrs, 
+                     SpecialHolidayAndRestDayOTHrs, SpecialHolidayAndRestDayOTAmount, 
+                     LegalHolidayHrs, LegalHolidayDays, LegalHolidayAmount, LegalHolidayOTHrs, 
+                     LegalOTAmount, LegalHolidayAndRestDayHrs, LegalHolidayAndRestDayDays, 
+                     LegalHolidayAndRestDayAmount, LegalHolidayAndRestDayOTHrs, 
+                     LegalHolidayAndRestDayOTAmount, TotalEmployeeHolidayHrs, 
+                     TotalEmployeeHolidayDays, TotalEmployeeHolidayAmount, 
+                     NDonworkingdayHrs, NDonworkingdayAmount, NDOTonworkingdayHrs, 
+                     NDOTonworkingdayAmount, NDonLegalHolidayHrs, NDonLegalHolidayAmount, 
+                     NDOTonLegalHolidayHrs, NDOTonLegalHolidayAmount, 
+                     NDonRestDayLegalHolidayHrs, NDonLegalHolidayRestdayAmount, 
+                     NDOTonRestDayLegalHolidayHrs, NDOTonLegalHolidayRestdayAmount, 
+                     NDonSpecialHolidayorRestDayHrs, NDonSpecialHolidayorRestDayAmount, 
+                     NDOTonSpecialHolidayorRestDayHrs, NDOTonSpecialHolidayorRestDayAmount, 
+                     NDSpecialHolidayandRestDayHrs, NDSpecialHolidayandRestDayAmount, 
+                     NDOTSpecialHolidayandRestDayHrs, NDOTSpecialHolidayandRestDayAmount, 
+                     TotalNDHrs, TotalNDAmount, SalaryAdjustment, LeaveWithPaySickDays, 
+                     LeaveWithPayVacationDays, LeaveWithPaySickAmount, LeaveWithPayVacationAmount, 
+                     COLA, Incentives, HazzardPay, Commission, CalamityLeave, OtherTaxable2, 
+                     TotalTaxableAmount, DeMinimis, IncentiveProgram, Bonus, Column3, 
+                     LaundryAllowance, MealAllowance, CompanyLoan, T13MonthPay, 
+                     TotalNonTaxable, TotalGrossPay, LateMin, LateMinAmount, LateHour, 
+                     LateAmount, AbsentOrWithoutLWPDays, AbsentOrWithoutLWPAmount, 
+                     TotalTardiness, SSSCUSTOMBASED, PHICCUSTOMBASED,  SSSBasicPayBased, 
+                     SSSGrossBased, SSSstatus, SSS, PHICBasicPayBased, 
+                     PHIC, PHICstatus, TotalSocialCost, SSSsalaryloan, SSSCalamityLoan, 
+                     HDMFSalaryLoan, HDMFCalamityLoan, TotalGovernmentLoans, CompanyLoans, 
+                     OtherLoan1, OtherLoan2, OtherLoan3, TotalOtherLoans, AdjustmentOrRefunds, 
+                     SalaryDeduction, Deductions, ManualTeraphyTechniques, UniformDeduction, 
+                     MedicalExpensesDeduction, TotalDeductions, AmountDue, TaxableIncome, 
+                     WithholdingTax, NetPay, T13thmonthbased, T13thMonthforthisCutoff, 
+                     SalaryType, ATM, CASH, ATM#, Remarks
+                     FROM Employee_new";
 
                 cmd = new SqlCommand(query, con);
                 da = new SqlDataAdapter(cmd);
@@ -87,40 +107,47 @@ namespace PAYROLLTEST
             if (ds.Tables["EmployeeData"].Rows.Count > 0)
             {
                 DataTable dt = ds.Tables["EmployeeData"];
-                listView1.Items.Clear(); // Clear existing items
 
-                // Iterate through each row
+                // Clear existing items in the ListView
+                listView1.Items.Clear();
+
+                // Add columns dynamically based on the DataTable column names
+                foreach (DataColumn column in dt.Columns)
+                {
+                    // Default all columns to Left alignment, but numeric columns (int) to Right alignment
+                    HorizontalAlignment alignment = HorizontalAlignment.Left;
+
+                    // If the column contains numeric types (int, long, etc.), set the alignment to Right
+                    if (column.DataType == typeof(int) || column.DataType == typeof(long) ||
+                        column.DataType == typeof(decimal) || column.DataType == typeof(float) ||
+                        column.DataType == typeof(double))
+                    {
+                        alignment = HorizontalAlignment.Right;
+                    }
+
+                    // Add the column with the correct alignment
+                    listView1.Columns.Add(column.ColumnName, 150, alignment); // Adjust width as needed
+                }
+
+                // Iterate through each row in the DataTable and add as ListView items
                 foreach (DataRow row in dt.Rows)
                 {
-                    // Create a new ListViewItem, starting with the first column (ID)
+                    // Create a new ListViewItem using the first column's value (ID in this case)
                     ListViewItem item = new ListViewItem(row["ID"].ToString());
 
-                    // Add remaining columns as subitems in the correct order
-                    item.SubItems.Add(row["NameOfEmployee"].ToString());
-                    item.SubItems.Add(row["Email"].ToString());
-                    item.SubItems.Add(row["EmployeeID"].ToString());
-                    item.SubItems.Add(row["Department"].ToString());
-                    item.SubItems.Add(row["Position"].ToString());
-                    item.SubItems.Add(row["TypeOfRate"].ToString());
-                    item.SubItems.Add(row["MonthlyRate"].ToString());
-                    item.SubItems.Add(row["MonthlyRateBasisDays"].ToString());
-                    item.SubItems.Add(row["DailyRate"].ToString());
-                    item.SubItems.Add(row["DailyRateAmountfromMonthlyRate"].ToString());
-                    item.SubItems.Add(row["SSSCUSTOMBASED"].ToString());
-                    item.SubItems.Add(row["PHICCUSTOMBASED"].ToString());
-                    item.SubItems.Add(row["SSSno"].ToString());
-                    item.SubItems.Add(row["PHICno"].ToString());
-                    item.SubItems.Add(row["HDMFno"].ToString());
-                    item.SubItems.Add(row["TINno"].ToString());
+                    // Add remaining columns as subitems dynamically
+                    for (int i = 1; i < dt.Columns.Count; i++) // Start from 1 to avoid the first column (ID)
+                    {
+                        // Just add the value as is without formatting decimals
+                        string value = row[dt.Columns[i].ColumnName].ToString();
+                        item.SubItems.Add(value);
+                    }
 
                     // Add the full ListViewItem to the ListView control
                     listView1.Items.Add(item);
                 }
             }
-            else
-            {
-                MessageBox.Show("No data found in the Employee_new table.");
-            }
+
         }
 
         private void Form5_Load(object sender, EventArgs e)
@@ -131,6 +158,20 @@ namespace PAYROLLTEST
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.Show();
+          
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.Show();
+           
         }
     }
 }
