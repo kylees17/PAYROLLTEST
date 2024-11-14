@@ -406,7 +406,7 @@
             // 
             this.txtNo.Location = new System.Drawing.Point(146, 34);
             this.txtNo.Name = "txtNo";
-            this.txtNo.Size = new System.Drawing.Size(216, 26);
+            this.txtNo.Size = new System.Drawing.Size(228, 26);
             this.txtNo.TabIndex = 24;
             this.txtNo.TextChanged += new System.EventHandler(this.txtNo_TextChanged);
             // 
@@ -736,7 +736,7 @@
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1560, 478);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "1";
@@ -1484,7 +1484,7 @@
             this.tabPage2.Controls.Add(this.groupBox8);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1560, 478);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "2";
@@ -1929,7 +1929,7 @@
             this.tabPage3.Controls.Add(this.groupBox9);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1560, 478);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "3";
@@ -2483,7 +2483,7 @@
             this.tabPage4.Controls.Add(this.groupBox12);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(1560, 478);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "4";
@@ -3062,7 +3062,7 @@
             this.tabPage5.Controls.Add(this.groupBox13);
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(1560, 478);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "5";
