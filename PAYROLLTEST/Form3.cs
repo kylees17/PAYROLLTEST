@@ -424,7 +424,7 @@ namespace PAYROLLTEST
                 }
 
                 // Display the total amount
-                txtOvertimeAmount.Text = totalAmount.ToString(" "); // Format to 2 decimal places
+                txtOvertimeAmount.Text = totalAmount.ToString(""); // Format to 2 decimal places
             }
 
         }
@@ -2269,8 +2269,21 @@ namespace PAYROLLTEST
             con.Open();
             if (txtNo.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("Select NameOfEmployee, Email, EmployeeID, Department, Position, TypeOfRate, MonthlyRate, MonthlyRateBasisDays, DailyRate, DailyRateAmountfromMonthlyRate, SSSCUSTOMBASED," +
-                    " PHICCUSTOMBASED FROM Employee_new WHERE ID=@ID", con);
+                SqlCommand cmd = new SqlCommand("SELECT NameOfEmployee, EmployeeID, Department, Position, TypeOfRate, MonthlyRate, MonthlyRateBasisDays, SemiMonthlySalary, DailyRate, DaysOfWork, DailyRateAmountfromMonthlyRate, SSSCUSTOMBASED, " +
+                   "PHICCUSTOMBASED, HoursOfWork, HourlyRate, MinuteRate, BasicPay, OvertimeMins, OvertimeHrs, OvertimeAmount, RestDaysHrs, RestDaysDays, RestDayAmount, RestDayOThrs, RestDayOTAmount, " +
+                   "TotalEmployeeRestDayHrs, TotalEmployeeRestDayDays, TotalEmployeeRestDayAmount, SpecialHolidayHrs, SpecialHolidayDays, SpecialHolidayAmount, SpecialHolidayOTHrs, SpecialHolidayOTAmount, " +
+                   "SpecialHolidayAndRestDayHrs, SpecialHolidayAndRestDayOTHrs, SpecialHolidayAndRestDayOTAmount, LegalHolidayHrs, LegalHolidayDays, LegalHolidayAmount, LegalHolidayOTHrs, LegalOTAmount, " +
+                   "LegalHolidayAndRestDayHrs, LegalHolidayAndRestDaydays, LegalHolidayAndRestDayAmount, LegalHolidayAndRestDayOTHrs, LegalHolidayAndRestDayOTAmount, TotalEmployeeHolidayHrs, " +
+                   "TotalEmployeeHolidayDays, TotalEmployeeHolidayAmount, NDonworkingdayHrs, NDonworkingdayAmount, NDOTonworkingdayHrs, NDOTonworkingdayAmount, NDonLegalHolidayHrs, NDonLegalHolidayAmount, " +
+                   "NDOTonLegalHolidayHrs, NDOTonLegalHolidayAmount, NDonRestDayLegalHolidayHrs, NDonLegalHolidayRestdayAmount, NDOTonRestDayLegalHolidayHrs, NDOTonLegalHolidayRestdayAmount, " +
+                   "NDonSpecialHolidayorRestDayHrs, NDonSpecialHolidayorRestDayAmount, NDOTonSpecialHolidayorRestDayHrs, NDOTonSpecialHolidayorRestDayAmount, NDSpecialHolidayandRestDayHrs, " +
+                   "NDSpecialHolidayandRestDayAmount, NDOTSpecialHolidayandRestDayHrs, NDOTSpecialHolidayandRestDayAmount, TotalNDHrs, TotalNDAmount, SalaryAdjustment, LeaveWithPaySickDays, " +
+                   "LeaveWithPayVacationDays, LeaveWithPaySickAmount, LeaveWithPayVacationAmount, COLA, Incentives, HazzardPay, Commission, CalamityLeave, OtherTaxable2, TotalTaxableAmount, " +
+                   "DeMinimis, IncentiveProgram, Bonus, Column3, LaundryAllowance, MealAllowance, CompanyLoan, T13MonthPay, TotalNonTaxable, TotalGrossPay, LateMin, LateMinAmount, LateHour, " +
+                   "LateAmount, AbsentOrWithoutLWPDays, AbsentOrWithoutLWPAmount, TotalTardiness, SSSBasicPayBased, SSSGrossBased, SSS, SSSstatus, PHICBasicPayBased, PHIC, PHICstatus, HDMFSTATUS, HDMF, TotalSocialCost, " +
+                   "SSSsalaryloan, SSSCalamityLoan, HDMFSalaryLoan, HDMFCalamityLoan, TotalGovernmentLoans, CompanyLoans, OtherLoan1, OtherLoan2, OtherLoan3, TotalOtherLoans, AdjustmentOrRefunds, " +
+                   "SalaryDeduction, Deductions, ManualTeraphyTechniques, UniformDeduction, MedicalExpensesDeduction, TotalDeductions, AmountDue, TaxableIncome, WithholdingTax, NetPay, " +
+                   "T13thmonthbased, T13thMonthforthisCutoff, SalaryType, ATM, CASH, ATM#, Remarks FROM Employee_new WHERE ID=@ID", con);
                 cmd.Parameters.AddWithValue("ID", int.Parse(txtNo.Text));
                 SqlDataReader da = cmd.ExecuteReader();
                 while (da.Read())
